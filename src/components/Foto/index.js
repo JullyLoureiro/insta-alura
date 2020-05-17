@@ -2,14 +2,17 @@ import React from 'react'
 import {Image, View, Text} from 'react-native'
 import estilo from './estilo.js'
 
-const Foto = () => {
+const Foto = ({info}) => {
   return (
       <View>
           <Image 
-              source={require('../../../res/img/alura.jpg')} 
+              source={{ uri: info.photo}} 
               style={estilo.imagem}
           />
-          <Text>Descrição da foto</Text>
+          <View style={estilo.viewImage}>
+              <Image style={estilo.like} source={require('../../../res/img/s2.png')} />
+              <Text  style={estilo.descricao}>{info.description}</Text>
+          </View>
       </View>
   );
 };
